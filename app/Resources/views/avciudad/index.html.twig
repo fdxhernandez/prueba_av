@@ -1,0 +1,113 @@
+{% extends 'base.html.twig' %}
+{% block contenido %}
+    <div class="row">
+        <div class="col s12">
+            <div class="input-field col s12">
+                <h3>Crear Pais</h3>
+            </div>
+            <div class="input-field col s8">
+                <i class="material-icons prefix">map</i>
+                <input type="text" name="Nombre Pais" id="name_pais"  placeholder="Nombre Pais" required>
+                <label for="Nombre Pais">Nombre Pais</label>
+            </div>
+            <div class="input-field col s4">
+                <button class="btn waves-effect waves-light green darken-1" id="crearpais">Crear
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+    </div>    
+    <div class="row">
+        <div class="col s12">
+            <div class="input-field col s12">
+                <h3>Crear Departamento</h3>
+            </div>
+            <div class="input-field col s6 m4">
+                <i class="material-icons prefix">location_on</i>
+                <input type="text" name="Nombre Departamento" id="name_departamento" placeholder="Nombre Departamento"  required>
+                <label for="Nombre Pais">Nombre Departamento</label>
+            </div>
+            <div class="input-field col s6 m4">
+                <select id="select-pais" class="select-dropdown dropdown-trigger" style="margin-bottom: 10px;" required="required" name="pais">
+                    <option value="">Seleccione Pais</option>
+                    {% for pais in paises %}	
+                        <option value="{{pais.id}}">{{pais.nombre}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="input-field col s12 push-s4 m4">
+                <button class="btn waves-effect waves-light green darken-1"  id="creardepartamento">Crear
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+    </div>  
+    <div class="row">
+        <form name="departamento" action="{{ path('avciudad_new') }}" method="POST"class="col s12">
+            <div class="input-field col s12">
+                <h3>Crear Ciudad</h3>
+            </div>
+            {{ form_start(form) }}
+            <div class="input-field col s12">                
+                {{ form_widget(form) }}
+            </div>
+            <div class="input-field col s12">
+                <select name="id_departamento" class="select-dropdown dropdown-trigger" style="margin-bottom: 10px;" required="required" id="select-departamento">
+                    <option value="">Seleccione Departamento</option>
+                    {% for dptos in departamentos %}	
+                        <option value="{{dptos.id}}">{{dptos.nombre}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="input-field col s12">
+                <button class="btn waves-effect waves-light green darken-1" type="submit" name="action">Guardar
+                    <i class="material-icons right">send</i>
+                </button>
+                {{ form_end(form) }}
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col m10 offset-m1 s12">
+            <h3>Lista de ciudades</h3>
+        </div>
+        <div class="col m10 offset-m1" s12>
+            <table class="highlight centered responsive-table">
+                <thead>
+                    <tr>
+                        <th>iD</th>
+                        <th>Nombre Ciudad</th>
+                        <th>Descripcion</th>
+                        <th>Departamento</th>
+                        <th>Pais</th>
+                        <th>Ver</th>
+                        <th>Editar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for avCiudad in avCiudads %}
+                        <tr>
+                            <td><a href="{{ path('avciudad_show', { 'id': avCiudad.id }) }}">{{ avCiudad.id }}</a></td>
+                            <td>{{ avCiudad.nombre }}</td>
+                            <td>{{ avCiudad.descripcion }}</td>
+                            <td>{{ avCiudad.idDepartamento.nombre }}</td>
+                            <td>{{ avCiudad.idDepartamento.idPais.nombre }}</td>
+                            <td >
+                                <a  href="{{ path('avciudad_show', { 'id': avCiudad.id }) }}"><i class="material-icons">remove_red_eye</i></a>                                
+                            </td>
+                            <td>
+                                <a href="{{ path('avciudad_edit', { 'id': avCiudad.id }) }}"><i class="material-icons">edit</i></a>
+                            </td>                              
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+    <script>
+        var urlpais = "{{ url('avpais_new') }}";
+        var urldpto = "{{ url('avdepartamento_new') }}";
+    </script>
+{% endblock %}

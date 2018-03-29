@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Aviatur{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="Fernando Hernández" content="Fernando Hernández">
+        {% block stylesheets %}
+            <link href="{{ asset('materialize/css/materialize.min.css')}}" rel="stylesheet" />
+            <link href="{{ asset('materialize/css/materialize.css')}}" rel="stylesheet" />
+            <link href="{{ asset('materialize/fonts/fonts.css')}}" rel="stylesheet" />
+            <link href="{{ asset('css/aviatur.css')}}" rel="stylesheet" />
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('fav.ico') }}" />
+    </head>
+    <body>
+        {% block body %}
+            {% block menu %}
+                <nav>
+                    <div class="nav-wrapper light-blue darken-1">
+                        <a href="{{ path('avciudad_index') }}" class="brand-logo">Aviatur</a>
+                        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                        <ul class="right hide-on-med-and-down">
+                            <li><a href="{{ path('avciudad_index') }}">Ciudades</a></li>
+                            <li><a href="{{ path('avdepartamento_index') }}">Departamentos</a></li>
+                            <li><a href="{{ path('avpais_index') }}">Paises</a></li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <ul class="sidenav light-blue darken-1" id="mobile-demo">
+                    <li><a class="grey-text text-lighten-4" href="{{ path('avciudad_index') }}">Ciudades</a></li>
+                    <li><a class="grey-text text-lighten-4" href="{{ path('avdepartamento_index') }}">Departamentos</a></li>
+                    <li><a class="grey-text text-lighten-4" href="{{ path('avpais_index') }}">Paises</a></li>
+                </ul>
+            {% endblock %}
+            <div class="content">
+            {% block contenido %}{% endblock%}
+        </div> 
+        <main></main>
+        <footer class="page-footer light-blue darken-1">
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2018 Luis Fernando Hernandez Penagos
+                    <a class="grey-text text-lighten-4 right" href="#!">Desarrollador Web</a>
+                </div>
+            </div>
+        </footer>
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4 id="titulo" class="center"></h4>
+                <p id="mensaje"></p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+            </div>
+        </div>
+        <script src="{{asset('Bundles/js/jquery-3.2.1.js')}}" type='text/javascript'></script>   
+        <script src="{{asset('materialize/js/materialize.min.js')}}" type='text/javascript'></script>
+        <script src="{{asset('materialize/js/materialize.js')}}" type='text/javascript'></script>
+    {% endblock %}
+{% block script %}{%endblock %}
+<script src="{{asset('js/aviatur.js')}}" type='text/javascript'></script>
+</body>
+</html>

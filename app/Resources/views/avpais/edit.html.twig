@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block contenido %}    
+    <div class="row">
+        <div class="row">
+            <div class="col s12">
+                <div class="input-field col s12">
+                    <h3>Editar Pais</h3>
+                </div>
+                {{ form_start(edit_form) }}
+                <div class="input-field col s12">                
+                    {{ form_widget(edit_form) }}
+                </div>
+                <div class="input-field col s12">
+                    <button class="btn waves-effect waves-light btn-large teal lighten-1" type="submit" name="action">Editar
+                        <i class="material-icons left">save</i>
+                    </button>
+                    {{ form_end(edit_form) }}
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col s6">
+            <a class="waves-effect waves-light btn-large teal lighten-1" href="{{ path('avciudad_index') }}"><i class="material-icons left">home</i>Volver</a>      
+        </div>
+        <div class="col s6">
+            {{ form_start(delete_form) }}
+            <button class="btn waves-effect waves-light btn-large teal lighten-1" type="submit" name="action">Eliminar
+                <i class="material-icons left">delete</i>
+            </button>
+            {{ form_end(delete_form) }}       
+        </div>              
+    </div>
+{% endblock %}

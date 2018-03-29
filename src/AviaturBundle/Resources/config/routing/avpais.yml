@@ -1,0 +1,24 @@
+avpais_index:
+    path:     /
+    defaults: { _controller: "AviaturBundle:AvPais:index" }
+    methods:  GET
+
+avpais_show:
+    path:     /{id}/show
+    defaults: { _controller: "AviaturBundle:AvPais:show" }
+    methods:  GET
+
+avpais_new:
+    path:     /new
+    defaults: { _controller: "AviaturBundle:AvPais:new" }
+    methods:  [GET, POST]
+
+avpais_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AviaturBundle:AvPais:edit" }
+    methods:  [GET, POST]
+
+avpais_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AviaturBundle:AvPais:delete" }
+    methods:  DELETE

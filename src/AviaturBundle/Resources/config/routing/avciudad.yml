@@ -1,0 +1,24 @@
+avciudad_index:
+    path:     /
+    defaults: { _controller: "AviaturBundle:AvCiudad:index" }
+    methods:  [GET, POST]
+
+avciudad_show:
+    path:     /{id}/show
+    defaults: { _controller: "AviaturBundle:AvCiudad:show" }
+    methods:  GET
+
+avciudad_new:
+    path:     /new
+    defaults: { _controller: "AviaturBundle:AvCiudad:new" }
+    methods:  [GET, POST]
+
+avciudad_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AviaturBundle:AvCiudad:edit" }
+    methods:  [GET, POST]
+
+avciudad_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AviaturBundle:AvCiudad:delete" }
+    methods:  DELETE

@@ -1,0 +1,50 @@
+<?php
+
+namespace AviaturBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * AvCiudad
+ *
+ * @ORM\Table(name="av_ciudad", indexes={@ORM\Index(name="FK_av_ciudad_av_departamento", columns={"id_departamento"})})
+ * @ORM\Entity
+ */
+class AvCiudad
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=255, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=255, nullable=false)
+     */
+    private $descripcion;
+
+    /**
+     * @var \AvDepartamento
+     *
+     * @ORM\ManyToOne(targetEntity="AvDepartamento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_departamento", referencedColumnName="id")
+     * })
+     */
+    private $idDepartamento;
+
+
+}
+

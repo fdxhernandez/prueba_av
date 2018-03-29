@@ -1,0 +1,9 @@
+aviatur_homepage:
+    resource: "@AviaturBundle/Resources/config/routing/avciudad.yml"
+    prefix: /
+aviatur_departamento:
+    resource: "@AviaturBundle/Resources/config/routing/avdepartamento.yml"
+    prefix: /departamento
+aviatur_pais:
+    resource: "@AviaturBundle/Resources/config/routing/avpais.yml"
+    prefix: /pais

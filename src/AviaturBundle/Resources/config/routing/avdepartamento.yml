@@ -1,0 +1,19 @@
+avdepartamento_index:
+    path:     /
+    defaults: { _controller: "AviaturBundle:AvDepartamento:index" }
+    methods:  GET
+
+avdepartamento_new:
+    path:     /new
+    defaults: { _controller: "AviaturBundle:AvDepartamento:new" }
+    methods:  [GET, POST]
+
+avdepartamento_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AviaturBundle:AvDepartamento:edit" }
+    methods:  [GET, POST]
+
+avdepartamento_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AviaturBundle:AvDepartamento:delete" }
+    methods:  DELETE

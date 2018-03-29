@@ -1,0 +1,5 @@
+aviatur:
+    resource: "@AviaturBundle/Resources/config/routing.yml"
+    prefix:   /
+
+

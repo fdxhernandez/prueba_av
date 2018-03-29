@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block contenido %}
+    <div class="row">
+        <div class="col s10 offset-s1">
+            <h3>Listado de departamentos</h3>
+        </div>
+        <div class="col s10 offset-s1">
+            <table class="highlight responsive-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Pais</th>
+                        <th>Editar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for avDepartamento in avDepartamentos %}
+                        <tr>
+                            <td>{{ avDepartamento.nombre }}</td>
+                            <td>{{ avDepartamento.idPais.nombre }}</td>
+                            <td>
+                                <a href="{{ path('avdepartamento_edit', { 'id': avDepartamento.id }) }}"><i class="material-icons">edit</i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col s4">
+            <a class="waves-effect waves-light btn-large teal lighten-1" href="{{ path('avciudad_index') }}"><i class="material-icons left">arrow_back</i>Volver</a>      
+        </div>          
+    </div>
+{% endblock %}
